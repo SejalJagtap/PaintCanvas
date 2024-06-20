@@ -4,9 +4,9 @@ import React, { FC } from 'react'
 import { useDraw } from '@/hooks/useDraw'
 import { ChromePicker } from 'react-color'
 import { useState } from 'react'
-// interface pageProps { }
+interface PageProps { }
 
-const page = () => {
+const Page: FC<PageProps> = ({ }) => {
   const { canvasRef, onMouseDown, clear } = useDraw(drawLine);
   const [color, setColor] = useState<string>("#000")
 
@@ -30,7 +30,7 @@ const page = () => {
   }
 
   return (
-    <div className='w-screen h-screen bg-blue-800 flex justify-center items-center'>
+    <div className='w-screen h-screen bg-blue- flex justify-center items-center'>
       <div className='flex flex-col gap-10 pr-10'>
         <ChromePicker color={color} onChange={(e) => setColor(e.hex)} />
         <button type='button' className='p-2 rounded-md border bg-pink-400 text-white border-black' onClick={clear}>
@@ -48,4 +48,4 @@ const page = () => {
   );
 }
 
-export default page;
+export default Page;
