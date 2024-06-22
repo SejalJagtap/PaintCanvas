@@ -6,7 +6,7 @@ import { ChromePicker } from 'react-color'
 import { useState, useEffect } from 'react'
 import { drawLine } from '@/utils/drawLine'
 import { io } from 'socket.io-client'
-const socket = io('http://localhost:3001')
+const socket = io('https://painting-canvas-backend-1.onrender.com')
 interface PageProps { }
 type DrawLineProps = {
   prevPoint: Point | null
