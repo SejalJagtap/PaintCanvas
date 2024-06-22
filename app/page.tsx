@@ -36,7 +36,9 @@ const Page: FC<PageProps> = ({ }) => {
     <div className='w-screen h-screen bg-blue-700 flex justify-center items-center'>
       <div className='flex flex-col gap-10 pr-10'>
         <ChromePicker color={color} onChange={(e) => setColor(e.hex)} />
-        <button type='button' className='p-2 rounded-md border bg-pink-400 text-white border-black' onClick={clear}>
+        <button type='button' className='p-2 rounded-md border bg-pink-400 text-white border-black' onClick={() => {
+          socket.emit('clear')
+        }}>
           Clear canvas
         </button>
       </div>
@@ -47,14 +49,7 @@ const Page: FC<PageProps> = ({ }) => {
         height={550}
         className='border border-black rounded-md bg-white'
       />
-      <div className='flex flex-col gap-10 pl-10'>
 
-        <button type='button' className='p-2 rounded-md border bg-pink-400 text-white border-black' onClick={() => {
-          socket.emit('clear')
-        }}>
-          Clear canvas
-        </button>
-      </div>
 
     </div>
   );
